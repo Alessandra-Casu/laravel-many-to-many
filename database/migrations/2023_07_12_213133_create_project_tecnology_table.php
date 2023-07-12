@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 20);
-            $table->text('description');
-            $table->timestamps();
+        Schema::create('project_tecnology', function (Blueprint $table) {
+            $table->unsignedBigInteger('project_id');
+            $table->unsignedBigInteger('tecnology_id');
+            
+            $table->foeign('project_id')->references('id')->on('projects');
+            $table->foeign('tecnology_id')->references('id')->on('tecnologies');
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('project_tecnology');
     }
 };

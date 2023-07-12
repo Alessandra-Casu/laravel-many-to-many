@@ -3,6 +3,7 @@
 @section('contents')
    
     <h1>{{ $type->name }}</h1>
+    <p>{{ $type->description}}</p>
     
 
     <h2>Type Project: </h2>

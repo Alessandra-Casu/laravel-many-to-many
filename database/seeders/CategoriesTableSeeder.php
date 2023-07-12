@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Faker\Generator as Faker;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -13,36 +14,36 @@ class CategoriesTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
        $categories = [
         [
             'name'  => 'Undefined',
-            'description' =>'Lorem picsum',
+            'description' => $faker->words(rand(20, 50), true),
         ],
         [
             'name'        => 'Politica',
-        'description' => 'Lorem picsum',
+        'description' => $faker->words(rand(20, 50), true),
         ],
         [
             'name'        => 'Attualità',
-        'description' => 'Lorem picsum',
+        'description' => $faker->words(rand(30, 100), true),
         ],
         [
             'name'        => 'Cucina',
-        'description' => 'Lorem picsum',
+        'description' => $faker->words(rand(30, 100), true),
         ],
         [
             'name'        => 'Informatica',
-        'description' => 'Lorem picsum',
+        'description' => $faker->words(rand(30, 100), true),
         ],
         [
             'name'        => 'Scuola',
-        'description' => 'Lorem picsum',
+        'description' => $faker->words(rand(30, 100), true),
         ],
         [
             'name'        => 'Cronaca',
-        'description' => 'Lorem picsum',
+        'description' => $faker->words(rand(30, 100), true),
         ],
     ];
 
