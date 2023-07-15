@@ -19,7 +19,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
                 <th scope="col">Type</th>
-                <th scope="col">Category</th>
+                <th scope="col">Technology</th>
                 <th scope="col">Image url</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -30,12 +30,18 @@
                     <th scope="row">{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
                     <td><a href="{{ route('admin.types.show', ['type' => $project->type]) }}">{{ $project->type->name }}</a></td>
-                    <td><a href="{{ route('admin.categories.show', ['category' => $project->category]) }}">{{ $project->category->name }}</a></td>
+                    {{-- <td><a href="{{ route('admin.categories.show', ['category' => $project->category]) }}">{{ $project->category->name }}</a></td> --}}
+                    <td> {{implode(', ', $project->technologies->pluck('name')->all()) }}</td>
                     <td>{{ $project->url_image }}</td>
                     <td>
                         <a class="btn btn-primary" href="{{ route('admin.projects.show', ['project' => $project]) }}">View</a>
                         <a class="btn btn-warning" href="{{ route('admin.projects.edit', ['project' => $project]) }}">Edit</a>
-                        <button type="button" class="btn btn-danger js-delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $project->id }}">
+                        <button
+                            type="button" 
+                            class="btn btn-danger js-delete"
+                             data-bs-toggle="modal" 
+                             data-bs-target="#deleteModal" 
+                             data-id="{{ $project->slug }}">
                             Delete
                         </button>
                     </td>
