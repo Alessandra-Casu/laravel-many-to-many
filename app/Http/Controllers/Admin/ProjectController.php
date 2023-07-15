@@ -146,7 +146,8 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //disassociare tutte le tecnologie dal progetto
-        $project->technologies()->sync([]);
+        $project->technologies()->detach();
+        // $project->technologies()->sync([]);
 
         //elimino il progetto
         $project->delete();

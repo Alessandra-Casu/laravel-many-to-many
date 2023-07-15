@@ -31,7 +31,14 @@
                     <td>{{ $project->title }}</td>
                     <td><a href="{{ route('admin.types.show', ['type' => $project->type]) }}">{{ $project->type->name }}</a></td>
                     {{-- <td><a href="{{ route('admin.categories.show', ['category' => $project->category]) }}">{{ $project->category->name }}</a></td> --}}
-                    <td> {{implode(', ', $project->technologies->pluck('name')->all()) }}</td>
+ 
+                    <td>
+                        @foreach($project->technologies as $technology)
+                            <a href="{{ route('admin.technologies.show', ['technology' => $technology])}}">{{$technology->name}}</a>{{!$loop->last ? ',' : ''}}
+                        @endforeach
+
+                    </td>
+
                     <td>{{ $project->url_image }}</td>
                     <td>
                         <a class="btn btn-primary" href="{{ route('admin.projects.show', ['project' => $project]) }}">View</a>
@@ -41,7 +48,7 @@
                             class="btn btn-danger js-delete"
                              data-bs-toggle="modal" 
                              data-bs-target="#deleteModal" 
-                             data-id="{{ $project->slug }}">
+                             data-id="{{ $project->id }}">
                             Delete
                         </button>
                     </td>
@@ -65,7 +72,7 @@
                     <form
                         action=""
                         data-template="{{ route('admin.projects.destroy', ['project' => '*****']) }}"
-                        method="project"
+                        method="post"
                         class="d-inline-block"
                         id="confirm-delete"
                     >

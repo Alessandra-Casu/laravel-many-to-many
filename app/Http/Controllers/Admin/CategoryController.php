@@ -82,6 +82,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        foreach ($category->projects as $project){
+            $project->category_id = 1;
+            $project->update();
+        }
+        $category->delete();
+        return to_route(route('admin.categories.index'))->with('category_delete_success', $category);
     }
 }
