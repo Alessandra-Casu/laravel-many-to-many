@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             CategoriesTableSeeder::class,
             TypesTableSeeder::class, 
+            TechnologiesTableSeeder::class,
             ProjectsTableSeeder::class, 
         ]);
     }

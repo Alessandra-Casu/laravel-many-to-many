@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('project_tecnology', function (Blueprint $table) {
-            $table->unsignedBigInteger('project_id');
-            $table->unsignedBigInteger('tecnology_id');
-            
-            $table->foeign('project_id')->references('id')->on('projects');
-            $table->foeign('tecnology_id')->references('id')->on('tecnologies');
+        Schema::create('project_technology', function (Blueprint $table) {
+          $table->unsignedBigInteger('project_id');
+          $table->unsignedBigInteger('technology_id');
+
+          $table->foreign('project_id')->references('id')->on('projects');
+          $table->foreign('technology_id')->references('id')->on('technologies');
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_tecnology');
+        Schema::dropIfExists('project_technology');
     }
 };

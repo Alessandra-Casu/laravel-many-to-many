@@ -18,32 +18,12 @@ class TypesTableSeeder extends Seeder
     {
         $types = [
             [
-                'name'  => 'Undefined',
+                'name'  => 'back-end',
                 'description' =>$faker->words(rand(20, 50), true),
             ],
             [
-                'name'  => 'Php',
+                'name'  => 'front-end',
                 'description' =>$faker->words(rand(20, 50), true),
-            ],
-            [
-                'name' => 'JavaScript',
-                'description' => $faker->words(rand(20, 50), true),
-            ],
-            [
-                'name' => 'Html',
-                'description' => $faker->words(rand(20, 50), true),
-            ],
-            [
-                'name' => 'C#',
-                'description' => $faker->words(rand(20, 50), true),
-            ],
-            [
-                'name' => 'Java',
-                'description' => $faker->words(rand(20, 50), true),
-            ],
-            [
-                'name' => 'C++',
-                'description' => $faker->words(rand(20, 50), true),
             ],
 
         ];
