@@ -18,7 +18,7 @@ class ProjectController extends Controller
         'url_image'     => 'required|url|max:200',
         'content'       => 'required|string',
         'technologies'  => 'nullable|array',
-        'technologies.*'=>'integer[exists:technologies, id'
+        
     ];
 
     private $validation_messages = [
@@ -90,6 +90,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+       
         return view ('admin.projects.show', compact('project'));
     }
 
