@@ -18,6 +18,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
+                <th scope="col">Count</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
                 <tr>
                     <th scope="row">{{ $category->id }}</th>
                     <td>{{ $category->name }}</td>
+                    <td>{{count($category->projects)  }}</td>
                    
            
                     <td>

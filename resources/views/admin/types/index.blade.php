@@ -4,13 +4,13 @@
 
     <h1>Types</h1>
 
-    {{-- @if (session('delete_success'))
+    @if (session('delete_success'))
         @php $project = session('delete_success') @endphp
         <div class="alert alert-danger">
-            Il progetto "{{ $project->title }}" è stato eliminato per sempre
+            Il tipo "{{ $type->title }}" è stato eliminato per sempre
 
         </div>
-    @endif --}}
+    @endif
 
 
     <table class="table table-striped">
@@ -18,6 +18,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
+                <th scope="col">Count</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -26,7 +27,7 @@
                 <tr>
                     <th scope="row">{{ $type->id }}</th>
                     <td>{{ $type->name }}</td>
-                   
+                    <td>{{count($type->projects)  }}</td>
            
                     <td>
                         <a class="btn btn-primary" href="{{ route('admin.types.show', ['type' => $type]) }}">View</a>

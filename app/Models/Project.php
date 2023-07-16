@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Category;
 use App\Models\Technology;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -25,4 +26,6 @@ class Project extends Model
         
         return $this->belongsToMany(Technology::class);
     }
+
+    
 }
